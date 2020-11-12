@@ -58,7 +58,8 @@ class RPCObject:
             if not member[0].startswith('_'):
                 s += '{}: {}{}\n'.format(member[0], ' ' * (max_length - len(member[0])), member[1])
 
-        s = s[:-1].encode('utf-8')
+        # s = s[:-1].encode('utf-8') # WTF? we're supposed to return a string, not bytes
+        s = s[:-1]
         return s
 
     def __repr__(self):
